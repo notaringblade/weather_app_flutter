@@ -90,26 +90,25 @@ class _HomeState extends State<Home> {
           toolbarHeight: 45,
         ),
         body: SingleChildScrollView(
-          child:
-          Column(children: [
-
-              TextFormField(
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white),
-                controller: _textController,
-                decoration: const InputDecoration(
-                  hintText: "Enter a location",
-                  hintStyle: TextStyle(color: Colors.white60),
-                ),
-                onFieldSubmitted: (value) {
-                  if (_textController.text != "") {
-                    location = _textController.text;
-                    setState(() {});
-                    _textController.text = "";
-                  }
-                },
-                textInputAction: TextInputAction.search,
+            child: Column(
+          children: [
+            TextFormField(
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.white),
+              controller: _textController,
+              decoration: const InputDecoration(
+                hintText: "Enter a location",
+                hintStyle: TextStyle(color: Colors.white60),
               ),
+              onFieldSubmitted: (value) {
+                if (_textController.text != "") {
+                  location = _textController.text;
+                  setState(() {});
+                  _textController.text = "";
+                }
+              },
+              textInputAction: TextInputAction.search,
+            ),
             FutureBuilder(
               future: getData(),
               builder: (context, AsyncSnapshot snapshot) {
@@ -136,8 +135,11 @@ class _HomeState extends State<Home> {
                           const SizedBox(
                             height: 20.0,
                           ),
-                          currentWeather("${data!.temp?.round()} °C",
-                              "${data!.locationName},", "${data!.countryName}", myColor),
+                          currentWeather(
+                              "${data!.temp?.round()} °C",
+                              "${data!.locationName},",
+                              "${data!.countryName}",
+                              myColor),
                           const SizedBox(
                             height: 20.0,
                           ),
@@ -146,18 +148,24 @@ class _HomeState extends State<Home> {
                             thickness: 1,
                           ),
                           additionalInfo(
-                              "${data!.description}",
-                              "${data!.additionalDescription}",
-                              "${data!.humidity}",
-                              "${data!.wind}",
-                              "${data!.deg}"),
+                            "${data!.description}",
+                            "${data!.additionalDescription}",
+                            "${data!.humidity}",
+                            "${data!.wind}",
+                            "${data!.deg}",
+                            "${data!.feelsLike}  °C",
+                            "${data!.maxTemp}  °C",
+                            "${data!.minTemp}  °C",
+                          ),
                         ]);
                   }
                 } else if (snapshot.connectionState ==
                     ConnectionState.waiting) {
                   return Column(
                     children: [
-                      const SizedBox(height: 100,),
+                      const SizedBox(
+                        height: 100,
+                      ),
                       CircularProgressIndicator(color: myColor),
                     ],
                   );
@@ -177,8 +185,7 @@ class _HomeState extends State<Home> {
                 );
               },
             )
-          ],)
-
-        ));
+          ],
+        )));
   }
 }
