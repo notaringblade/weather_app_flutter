@@ -9,20 +9,22 @@ Widget additionalInfo(
           crossAxisAlignment: CrossAxisAlignment.center,
           
           children: [
+                const SizedBox(height: 20,),
+            const Text("Additional Data:", style: TextStyle(color: Colors.white, fontSize: 20), textAlign: TextAlign.center,),
                 const SizedBox(height: 40,),
             
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,              
               children: [
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
                   
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
+                    
                     const Text(
                       "Conditions:",
                       style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      
                     ),
                     const SizedBox(
                         height: 40.0, 
@@ -78,8 +80,7 @@ Widget additionalInfo(
                 ),
 
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.start,
+
                   children: [
                     
                     Text(

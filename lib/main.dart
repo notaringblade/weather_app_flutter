@@ -81,9 +81,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black12,
+        backgroundColor: Color(0x14140F80),
         appBar: AppBar(
-          backgroundColor: Colors.black12,
+          backgroundColor: Color(0x14140F80),
           title: const Text("Weather-App"),
           centerTitle: true,
           elevation: 0,
@@ -123,6 +123,7 @@ class _HomeState extends State<Home> {
                   } else {
                     return Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const SizedBox(
                             height: 20.0,
